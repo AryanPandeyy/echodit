@@ -1,6 +1,7 @@
 import { Bot } from "lucide-react";
-import { Button, buttonVariants } from "./ui/button";
 import Link from "next/link";
+
+import { buttonVariants } from "./ui/button";
 
 const Navbar = ({}) => {
   return (
@@ -11,6 +12,7 @@ const Navbar = ({}) => {
           <p className="hidden font-medium text-zinc-700 md:block">Echodit</p>
         </Link>
       </div>
+      {/* Search Bar */}
       <Link className={buttonVariants()} href="/sign-in">
         Sign In
       </Link>
