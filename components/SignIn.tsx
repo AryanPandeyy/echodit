@@ -1,5 +1,6 @@
 import { Bot } from "lucide-react";
 import Link from "next/link";
+import UserAuthForm from "./UserAuthForm";
 export const SignIn = () => {
   return (
     <div className="container w-full flex flex-col justify-center text-center sm:w-[400px] space-y-2">
@@ -13,6 +14,7 @@ export const SignIn = () => {
         By continuing, you are setting up a Echodit account and agree to our
         User Agreement and Privacy Policy.
       </p>
+      <UserAuthForm />
       <p className="px-8 text-center text-sm text-zinc-700">
         New to Echodit?{" "}
         <Link
