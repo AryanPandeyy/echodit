@@ -24,7 +24,7 @@ const UserAuthForm: FC<UserAuthFormInterface> = ({ className, ...props }) => {
 
   return (
     <div className={cn("", className)} {...props}>
-      <Button className="w-full" onClick={googleSignIn}>
+      <Button className="w-full" isLoading={isLoading} onClick={googleSignIn}>
         {isLoading ? null : <Icons.google className="h-4 w-4 mr-2" />}
         Google
       </Button>
