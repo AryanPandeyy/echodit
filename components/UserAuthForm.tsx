@@ -12,6 +12,7 @@ const UserAuthForm: FC<UserAuthFormInterface> = ({ className, ...props }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const googleSignIn = async () => {
+    setIsLoading(true);
     try {
       await signIn("google");
     } catch (e) {
@@ -22,7 +23,7 @@ const UserAuthForm: FC<UserAuthFormInterface> = ({ className, ...props }) => {
   };
 
   return (
-    <div className={cn("flex", className)} {...props}>
+    <div className={cn("", className)} {...props}>
       <Button className="w-full" onClick={googleSignIn}>
         {isLoading ? null : <Icons.google className="h-4 w-4 mr-2" />}
         Google
