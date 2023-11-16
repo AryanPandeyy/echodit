@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
+import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,9 +28,11 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-screen pt-12 bg-slate-50 antialiased">
-        <Navbar />
-        {authModal}
-        <div className="container max-w-7xl mx-auto pt-12">{children}</div>
+        <Providers>
+          <Navbar />
+          {authModal}
+          <div className="container max-w-7xl mx-auto pt-12">{children}</div>
+        </Providers>
       </body>
     </html>
   );
