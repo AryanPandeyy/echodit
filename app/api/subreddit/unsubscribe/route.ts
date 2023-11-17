@@ -49,6 +49,6 @@ export async function POST(req: NextRequest) {
     if (error instanceof z.ZodError) {
       return new Response(error.message, { status: 422 });
     }
-    return new Response("Could not leave Community: ", error, { status: 500 });
+    return new Response("Could not leave Community: ", { status: 500 });
   }
 }
