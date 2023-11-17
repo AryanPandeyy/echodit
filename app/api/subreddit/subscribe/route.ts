@@ -1,6 +1,9 @@
 import { NextRequest } from "next/server";
 import { getAuthSession } from "../../auth/[...nextauth]/option";
-import { SubRedditSubscriptionValidator } from "@/lib/validators/subreddit";
+import {
+  SubRedditSubscriptionValidator,
+  SubtRedditValidator,
+} from "@/lib/validators/subreddit";
 import { db } from "@/lib/db";
 import { z } from "zod";
 
@@ -35,24 +38,5 @@ export async function POST(req: NextRequest) {
       return new Response(error.message, { status: 422 });
     }
     return new Response("Could not subscribe Community", { status: 500 });
-  }
-}
-
-export async function DELETE(req: NextRequest) {
-  try {
-    const session = await getAuthSession();
-    if (!session?.user) {
-      return new Response("Unauthorized", { status: 401 });
-    }
-    const body = await req.json();
-    const { subredditId } = SubRedditSubscriptionValidator.parse(body);
-    await db.subscription.delete({
-      where: {
-        subbreaditId: subredditId,
-        userId: session.user.id,
-      },
-    });
-  } catch (error) {
-    console.log(error);
   }
 }
