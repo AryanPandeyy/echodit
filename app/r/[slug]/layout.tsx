@@ -1,6 +1,8 @@
 import { getAuthSession } from "@/app/api/auth/[...nextauth]/option";
 import SubscribeLeaveToggle from "@/components/SubscribeLeaveToggle";
+import { buttonVariants } from "@/components/ui/button";
 import { db } from "@/lib/db";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FC, ReactNode } from "react";
 
@@ -84,6 +86,17 @@ const layout: FC<layoutProps> = async ({ children, params }) => {
                 subredditId={subreddit.id}
               />
             )}
+            <div className="flex items-center px-6 py-4">
+              <Link
+                href={`/r/${params.slug}/submit`}
+                className={buttonVariants({
+                  variant: "outline",
+                  className: "w-full",
+                })}
+              >
+                Create Post
+              </Link>
+            </div>
           </div>
         </div>
       </div>
